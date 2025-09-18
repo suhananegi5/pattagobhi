@@ -1,28 +1,441 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Im Sorry</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Jiya Maam ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid rgba(252, 182, 159, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-item {
+            cursor: pointer;
+            color: #666;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            min-height: calc(100vh - 100px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 0;
+        }
+
+        .page {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            animation: fadeIn 0.6s ease-in-out;
+            max-width: 900px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #444;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Heart decorations */
+        .heart {
+            color: #ff6b6b;
+            font-size: 1.2em;
+            margin: 0 5px;
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Options Page Specific Styles */
+        .options-container {
+            text-align: center;
+        }
+
+        .option-button {
+            display: block;
+            width: 100%;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .option-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .option-button:nth-child(4) {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+        }
+
+        .note {
+            font-style: italic;
+            color: #666;
+            margin: 2rem 0;
+            font-size: 1rem;
+        }
+
+        #response {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #444;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Sorry Page Specific Styles */
+        .sorry-content {
+            text-align: center;
+        }
+
+        .sorry-emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin: 15px 10px;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 0.8rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-item {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .page {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Special styling for emphasized text */
+        strong {
+            color: #ff6b6b;
+            font-weight: 700;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Left Navigation -->
-    <div class="nav">
-      <h2>Maaf Krdo Yaar Pls</h2>
-      <a href="#jiyamaam" onclick="loadPage('Jiya Maam')">Jiya Maam</a>
-      <a href="#about" onclick="loadPage('about')">About Us</a>
-      <a href="#sorry" onclick="loadPage('sorry')">Sorry</a>
-      <a href="#options" onclick="loadPage('options')">Options</a>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo">For Jiya Maam <span class="heart">💖</span></a>
+                <ul class="nav-menu">
+                    <li class="nav-item active" data-page="home">Jiya Maam</li>
+                    <li class="nav-item" data-page="about">About Us</li>
+                    <li class="nav-item" data-page="sorry">Sorry</li>
+                    <li class="nav-item" data-page="options">Options</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Home Page - Jiya Maam -->
+            <div class="page active" id="home">
+                <h1>Jiya Maam <span class="heart">💕</span></h1>
+                <p>Jiya Maam isn't just a leader, she's the kind of person who leaves a lasting impact on everyone she works with.<br>
+                During my internship, she wasn't only my department head, but also my mentor, biggest supporter, and someone I now call a very close friend.<br><br>
+
+                She has entrusted Hannah and me with her department, a gesture that means the world to both of us.<br>
+                It reflects not just her faith in us, but also her rare ability to empower others with trust, grace, and encouragement.<br><br>
+
+                Jiya Maam is one of the sweetest, most caring people I know.<br>
+                She's the kind of person who checks in when she doesn't have to, who notices the little things, and who makes even the hardest days lighter just by being around.<br>
+                Her warmth, patience, and constant support have shaped not just my work, but me as a person.<br><br>
+
+                More than just a professional guide, she's a friend I can always count on and I'm endlessly grateful for her.</p>
+                
+                <div style="text-align: center;">
+                    <button class="btn" onclick="showPage('about')">Read About Our Journey <span class="heart">💫</span></button>
+                </div>
+            </div>
+
+            <!-- About Us Page -->
+            <div class="page" id="about">
+                <h2>About Us <span class="heart">👥💕</span></h2>
+                <p>Jiya Maam and I have worked on two events together so far, and it's been a journey that's brought us closer in ways I didn't expect.<br>
+                From the very beginning of our last project, I started seeing a side of her that I hadn't known before, a side that's incredibly deep, warm, and full of love.<br><br>
+
+                She loves with so much passion and sincerity. Even when circumstances force her to step back from someone she cares about, she never truly stops caring.<br>
+                That kind of love quiet, unwavering, and selfless makes me fall absolutely in love with her (respectfully) all over again.<br><br>
+
+                She's helped me, supported me, and stood by me more times than I can count.<br>
+                And even though I may have messed things up, I'm still beyond grateful that she's in my life.<br>
+                Because knowing her really knowing her has been one of the most meaningful things I've experienced.</p>
+                
+                <div style="text-align: center;">
+                    <button class="btn" onclick="showPage('sorry')">But I Messed Up... <span class="heart">😔</span></button>
+                </div>
+            </div>
+
+            <!-- Sorry Page -->
+            <div class="page" id="sorry">
+                <div class="sorry-content">
+                    <div class="sorry-emoji">😔💔</div>
+                    <h2>I'm Really Sorry</h2>
+                    <p>For what feels like the hundredth time, I've messed something up again because of my communication skills.<br>
+                    And this time, I've hurt someone I deeply care about you, Jiya Maam.<br><br>
+
+                    I want you to know that it was never, ever my intention to hurt you.<br>
+                    If I said or did anything that caused you pain, I am truly and genuinely sorry from the bottom of my heart.<br><br>
+
+                    Life feels... off without you.<br>
+                    Without talking to you, without sending you my usual weird messages all day, I don't really know what to do with myself.<br><br>
+
+                    This entire website it's my way of trying to say what I haven't been able to communicate properly in chat.<br>
+                    You mean so much to me, not just as a mentor, or a friend, but as someone who's been a constant source of light, care, and comfort in my life.<br><br>
+
+                    So pleaseeeee, jiyayayaya maam... if you can find it in your heart, I hope you will forgive me.<br>
+                    Please, please, please know how sorry I am and how much I miss having you around.<br><br>
+
+                    I pinky promise to try harder. To be better. To never take your presence in my life for granted again.<br><br>
+
+                    <strong>I'm really, truly sorry.</strong></p>
+                    
+                    <button class="btn" onclick="showPage('options')">Please Check Options <span class="heart">🥺</span></button>
+                </div>
+            </div>
+
+            <!-- Options Page -->
+            <div class="page" id="options">
+                <div class="options-container">
+                    <h1>Options</h1>
+                    
+                    <button class="option-button" onclick="selectOption(1)">1st: Mujhe maaf krdo</button>
+                    <button class="option-button" onclick="selectOption(2)">2nd: Mujhe pls maaf krdo</button>
+                    <button class="option-button" onclick="selectOption(3)">3rd: Mujhe pls pls maaf krdo</button>
+                    <button class="option-button" onclick="selectOption(4)">4th: Main chhat se kud jaaungi</button>
+
+                    <p class="note">
+                        Please kindly select 1st, 2nd, or 3rd option.<br>
+                        But even if you select the 4th one... I understand.
+                    </p>
+
+                    <div id="response"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Right Content -->
-    <div class="content">
-      <iframe id="contentFrame" title="Content Area"></iframe>
-    </div>
-  </div>
+    <script>
+        // Navigation functionality
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update nav items
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            document.querySelector(`[data-page="${pageId}"]`).classList.add('active');
+        }
 
-  <script src="script.js"></script>
+        // Add click event listeners to nav items
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const pageId = item.getAttribute('data-page');
+                showPage(pageId);
+            });
+        });
+
+        // Options functionality
+        function selectOption(option) {
+            const responseDiv = document.getElementById('response');
+            switch(option) {
+                case 1:
+                    responseDiv.innerHTML = "Thank you for choosing the 1st option! Love you too <span class='heart'>💕</span>";
+                    break;
+                case 2:
+                    responseDiv.innerHTML = "2nd option selected — bahut saara pyaar aapko <span class='heart'>💖</span>";
+                    break;
+                case 3:
+                    responseDiv.innerHTML = "3rd option chosen! MUJHE PATA THA U LOVE ME <span class='heart'>🥰✨</span>";
+                    break;
+                case 4:
+                    responseDiv.innerHTML = "i-, koi nahi i understand <span class='heart'>😔</span>";
+                    break;
+                default:
+                    responseDiv.innerHTML = "";
+            }
+        }
+    </script>
 </body>
 </html>
+
 
